@@ -7,10 +7,14 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
 <<<<<<< HEAD
+<<<<<<< HEAD
         <module name="uc5__1" />
 =======
         <module name="uc6" />
 >>>>>>> uc6
+=======
+        <module name="uc7" />
+>>>>>>> uc7
       </profile>
     </annotationProcessing>
   </component>
