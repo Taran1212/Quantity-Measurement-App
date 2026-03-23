@@ -83,6 +83,46 @@ public class Quantity<U extends IMeasurable> {
 
     public Quantity<U> subtract(Quantity<U> obj){
 
+        if(obj == null) throw new IllegalArgumentException("null input");
+
+        double thisBase = this.unit.convertToBaseUnit(this.value);
+        double otherBase = obj.unit.convertToBaseUnit(obj.value);
+
+        double sub = thisBase - otherBase;
+
+        double subToTarget = this.unit.convertFromBaseUnit(sub);
+
+        return new Quantity<>(subToTarget,this.unit);
         
     }
+
+    public Quantity<U> subtract(Quantity<U> other, U target){
+
+        if(other == null || target == null) throw new IllegalArgumentException("null input");
+
+        double thisBase = this.unit.convertToBaseUnit(this.value);
+        double otherBase = other.unit.convertToBaseUnit(other.value);
+
+        double sub = thisBase - otherBase;
+
+        double subToTarget = target.convertFromBaseUnit(sub);
+
+        return new Quantity<U>(subToTarget,target);
+    }
+
+    public Quantity<U> divide (Quantity<U> obj){
+        if(obj == null) throw new IllegalArgumentException("null input");
+
+        double thisBase = this.unit.convertToBaseUnit(this.value);
+        double otherBase = obj.unit.convertToBaseUnit(obj.value);
+
+        double div = thisBase/otherBase;
+
+
+
+        return new Quantity<U>(div,this.unit);
+
+    }
+
+
 }
